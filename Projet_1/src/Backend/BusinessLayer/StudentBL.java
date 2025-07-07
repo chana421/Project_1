@@ -15,9 +15,9 @@ public class StudentBL {
     private double balance;
 
     private CalenderBL lessonLog;  
-    private CalenderBL achievements; 
 
-    private DriverBL vv;
+    private DrivingInstructorBL  drivingInstructor;
+
 
 
 
