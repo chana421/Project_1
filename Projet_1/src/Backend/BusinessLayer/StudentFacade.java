@@ -17,6 +17,28 @@ class StudentFacade{
        
           return studentsMap.get(id);
     }
+    public void addStudent(StudentBL student){
+        if(studentsMap.containsKey(student.getId()))
+          throw new IllegalArgumentException("student is already exsit");
+        
+        studentsMap.put(student.getId(), student);
+    }
+    public void removeStudent(int id){
+        if(!studentsMap.containsKey(id))
+          throw new IllegalArgumentException("student is not exsit");
+        
+        studentsMap.remove(id);
+    }
+    public void updateStudent(StudentBL student){
+        if(!studentsMap.containsKey(student.getId()))
+          throw new IllegalArgumentException("student is not exsit");
+        
+        studentsMap.put(student.getId(), student);
+    }
+
+    public Map<Integer, StudentBL> getStudentsMap() {
+        return studentsMap;
+    }
 
     
 }
