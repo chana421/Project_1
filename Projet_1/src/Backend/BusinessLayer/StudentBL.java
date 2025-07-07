@@ -14,10 +14,10 @@ public class StudentBL {
     private String status;
     private double balance;
 
-    private List<String> lessonLog;  
-    private List<String> achievements; 
+    private CalenderBL lessonLog;  
+    private CalenderBL achievements; 
 
-    private DriverBL ;
+    private DriverBL vv;
 
 
 
