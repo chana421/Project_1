@@ -1,4 +1,5 @@
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class DrivingInstructorBL {
@@ -10,6 +11,7 @@ public class DrivingInstructorBL {
     private boolean isManual;
     private Map<Integer, StudentBL> studentsMap= new HashMap<>();
     private CalenderBL calender=new CalenderBL();
+    private PaymentMethod paymentMethod;
 
     public DrivingInstructorBL(String name, int id, String location, int pricePerLesson, boolean isManual) {
         this.name = name;
@@ -77,5 +79,33 @@ public class DrivingInstructorBL {
         return calender;
     }
 
+    public PaymentMethod getPaymentMethod() {
+        return paymentMethod;
+    }
 
+    public void setPaymentMethod(PaymentMethod paymentMethod) {
+        this.paymentMethod = paymentMethod;
+    }
+
+    public List<StudentBL> getStudentsWithDebt() {
+       List<StudentBL> studentsWithDebt = new ArrayList<>();
+        for( StudentBL student : studentsMap.values()) {
+            if (student.unpaidAmount  > 0 ) {
+                studentsWithDebt.add(student);
+            }
+        }
+        return studentsWithDebt; // Return an empty list if no students with debt
+    }
+
+    public void messageStudents(String message) {
+        for (StudentBL student : studentsMap.values()) {
+            student.receiveMessage(message);
+        }
+    }
+
+    public enum PaymentMethod {
+        CASH,
+        CREDIT_CARD,
+        BANK_TRANSFER
+    }
 }
