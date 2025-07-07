@@ -9,7 +9,7 @@ public class DrivingInstructorBL {
     private int pricePerLesson;
     private boolean isManual;
     private Map<Integer, StudentBL> studentsMap= new HashMap<>();
-    private Calender calender=new Calender();
+    private CalenderBL calender=new CalenderBL();
 
     public DrivingInstructorBL(String name, int id, String location, int pricePerLesson, boolean isManual) {
         this.name = name;
@@ -73,9 +73,9 @@ public class DrivingInstructorBL {
         this.isManual = isManual;
     }
 
-    public Calender getCalender() {
+    public CalenderBL getCalender() {
         return calender;
     }
 
-    
+
 }
